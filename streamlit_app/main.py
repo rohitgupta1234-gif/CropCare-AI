@@ -3,6 +3,16 @@ CropCare AI - Main Application Entry Point
 Streamlit multi-page application with proper navigation.
 """
 
+import sys
+from pathlib import Path
+
+# Add project root to Python path for src imports
+# This is required for Streamlit Cloud deployment where the working directory
+# may not include the repository root in sys.path
+PROJECT_ROOT = Path(__file__).parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 import streamlit as st
 from src.utils.constants import PAGE_CONFIG, PAGES
 from src.disease_info.translations import get_translator, set_language, get_language

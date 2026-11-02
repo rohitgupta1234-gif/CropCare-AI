@@ -66,9 +66,9 @@ fix_*.py
 *_debug.py
 *_test.py
 
-# Old/deprecated files
+# Old/deprecated files (root-level only)
 app.py
-pages/
+/pages/
 *.md
 !README.md
 !LICENSE
