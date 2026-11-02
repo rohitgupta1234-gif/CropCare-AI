@@ -1,0 +1,98 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+venv*/
+env*/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+secrets.toml
+
+# Database (SQLite - can be regenerated)
+*.db
+*.sqlite
+*.sqlite3
+
+# Training data (large - exclude for GitHub)
+data/raw/
+data/processed/
+data/uploads/
+data/*.zip
+
+# Model training artifacts - keep only best_model.keras
+models/checkpoints/*.keras
+!models/checkpoints/best_model.keras
+models/trained/
+
+# Model metadata (keep these)
+!models/metadata/
+
+# Development/debug scripts
+fix_*.py
+*_debug.py
+*_test.py
+
+# Old/deprecated files
+app.py
+pages/
+*.md
+!README.md
+!LICENSE
+!CHANGELOG.md
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# OS specific
+*.lnk
+
+# IDE project files
+*.sln
+*.suo
+*.user
+*.userprefs

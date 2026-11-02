@@ -1,0 +1,1 @@
+"""Disease information module for CropCare AI."""
