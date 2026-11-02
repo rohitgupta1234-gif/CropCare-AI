@@ -1,0 +1,42 @@
+# Streamlit Cloud Configuration
+# https://docs.streamlit.io/library/advanced-features/configuration
+
+[server]
+# Enable headless mode for cloud deployment
+headless = true
+# Allow cross-origin requests if needed
+enableCORS = false
+enableXsrfProtection = false
+# Port is set by Streamlit Cloud automatically
+
+[browser]
+# Don't try to open browser on cloud
+gatherUsageStats = false
+serverAddress = "0.0.0.0"
+
+[theme]
+# CropCare AI brand colors
+primaryColor = "#2E7D32"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#E8F5E9"
+textColor = "#1B5E20"
+font = "sans serif"
+
+[runner]
+# Magic commands and fast reruns
+magicEnabled = true
+installTracer = false
+fixMatplotlib = true
+enumCoercion = "off"
+
+[logger]
+# Reduce log verbosity in production
+level = "info"
+messageFormat = "%(asctime)s %(levelname)s: %(message)s"
+
+[client]
+toolbarMode = "minimal"
+
+[global]
+# Development mode off for production
+developmentMode = false

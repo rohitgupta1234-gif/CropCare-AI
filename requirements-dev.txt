@@ -1,0 +1,23 @@
+# CropCare AI - Development Requirements
+# Install with: pip install -r requirements-dev.txt
+# These are NOT needed for production deployment
+
+# Testing
+pytest==7.4.4
+pytest-cov==4.1.0
+pytest-mock==3.12.1
+
+# Code Quality
+black==24.4.2
+flake8==7.1.0
+isort==5.13.2
+mypy==1.10.0
+pre-commit==3.7.1
+
+# Jupyter/Colab
+jupyter==1.0.0
+ipykernel==6.29.5
+nbformat==5.10.4
+
+# Note: Install production requirements first:
+# pip install -r requirements.txt
