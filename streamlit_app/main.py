@@ -79,13 +79,11 @@ def create_page_objects():
             missing_files.append(str(page_path_resolved))
             continue
 
-        # Use path relative to entry point directory (streamlit_app/)
-        # st.Page expects paths relative to the entry point script's directory
-        relative_page_path = page_path.relative_to(Path(__file__).parent)
-
+        # Use absolute resolved path for st.Page - this works regardless of working directory
+        # st.Page accepts absolute paths (Path or str)
         page_objects.append(
             st.Page(
-                page=str(relative_page_path),
+                page=str(page_path_resolved),
                 title=config["name"],
                 icon=config["icon"],
                 url_path=config["name"].lower().replace(" ", "-"),
