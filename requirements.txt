@@ -7,8 +7,8 @@ tensorflow==2.17.0
 tensorflow-hub==0.16.1
 
 # Data Processing & Augmentation
-# NumPy 2.x supported by TF 2.17+
-numpy>=1.26
+# NumPy <2.0 for TF 2.17.0 compatibility (avoids NumPy 2.x issues on cloud)
+numpy>=1.26,<2.0
 pandas==2.2.2
 Pillow==10.3.0
 # Headless OpenCV for cloud deployment (no GUI dependencies)
