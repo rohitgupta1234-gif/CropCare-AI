@@ -55,8 +55,10 @@ def main():
 def create_page_objects():
     """Create st.Page objects for all application pages."""
     from pathlib import Path
+    import streamlit as st
 
     pages_dir = Path(__file__).parent / "pages"
+    pages_dir_resolved = pages_dir.resolve()
 
     page_configs = [
         {"name": "Home", "icon": "🏠", "file": "1_Home.py"},
@@ -67,16 +69,32 @@ def create_page_objects():
     ]
 
     page_objects = []
+    missing_files = []
     for config in page_configs:
         page_path = pages_dir / config["file"]
+        page_path_resolved = page_path.resolve()
+
+        # Verify file exists
+        if not page_path_resolved.exists():
+            missing_files.append(str(page_path_resolved))
+            continue
+
+        # Use path relative to entry point directory (streamlit_app/)
+        # st.Page expects paths relative to the entry point script's directory
+        relative_page_path = page_path.relative_to(Path(__file__).parent)
+
         page_objects.append(
             st.Page(
-                page=str(page_path),
+                page=str(relative_page_path),
                 title=config["name"],
                 icon=config["icon"],
                 url_path=config["name"].lower().replace(" ", "-"),
             )
         )
+
+    if missing_files:
+        st.error(f"Missing page files: {', '.join(missing_files)}")
+        st.stop()
 
     return page_objects
 
