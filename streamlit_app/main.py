@@ -58,7 +58,6 @@ def create_page_objects():
     import streamlit as st
 
     pages_dir = Path(__file__).parent / "pages"
-    pages_dir_resolved = pages_dir.resolve()
 
     page_configs = [
         {"name": "Home", "icon": "🏠", "file": "1_Home.py"},
@@ -79,11 +78,13 @@ def create_page_objects():
             missing_files.append(str(page_path_resolved))
             continue
 
-        # Use absolute resolved path for st.Page - this works regardless of working directory
-        # st.Page accepts absolute paths (Path or str)
+        # Use path relative to entry point directory (streamlit_app/)
+        # Streamlit 1.38.0 requires page paths relative to the entry point file
+        relative_page_path = page_path.relative_to(Path(__file__).parent)
+
         page_objects.append(
             st.Page(
-                page=str(page_path_resolved),
+                page=str(relative_page_path),
                 title=config["name"],
                 icon=config["icon"],
                 url_path=config["name"].lower().replace(" ", "-"),
